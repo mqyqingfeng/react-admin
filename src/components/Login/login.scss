@@ -1,0 +1,36 @@
+/*
+* @Author: kevin
+* @Date:   2016-11-14 12:36:42
+* @Last Modified by:   kevin
+* @Last Modified time: 2016-11-14 13:11:29
+*/
+
+.login-wrap {
+	width: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -150px;
+	transform: translateY(-50%);
+	background-color: #484848;
+	border-radius: 5px;
+	padding: 10px 10px;
+	.ant-form-item {
+		margin-bottom: 10px;
+	}
+	.ant-btn {
+		width: 100%;
+	}
+}
+
+.login-title {
+	font-size: 16px;
+	text-align: center;
+	line-height: 30px;
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+// body {
+// 	background-color: #5B5B5B;
+// }

@@ -1,0 +1,28 @@
+/*
+* @Author: kevin
+* @Date:   2016-11-16 17:29:49
+* @Last Modified by:   kevin
+* @Last Modified time: 2016-11-16 18:05:54
+*/
+
+.app {
+	height: 100%;
+}
+
+div[data-reactroot] {
+	height: 100%;
+}
+
+.content {
+	width: 100%;
+	background-color: #F4F4F4;
+	height: 100%;
+	padding-left: 240px;
+}
+
+.main_wrapper {
+	margin-top: 20px;
+	background-color: #fff;
+	margin-left: 20px;
+	min-height: 600px;
+}
