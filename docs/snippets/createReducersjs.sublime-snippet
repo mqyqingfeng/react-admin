@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+const initialState = {
+	${2}
+};
+
+function ${1}(state = initialState, action) {
+    switch (action.type) {
+        case '${3}':
+            return Object.assign({}, state, {
+                ${2}: action.payload
+            })
+        default:
+            return state
+    }
+}
+
+export default ${1};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>create reducer.js</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+	<description>创建一个reducer.js</description>
+</snippet>

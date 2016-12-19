@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+function mapDispatchToProps(dispatch) {
+    return {
+        ${1}: (${3}) => dispatch(${2: action}(${3})),
+    };
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>new mapdispatch</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+	<description>创建一个mapDispatchToProps函数</description>
+</snippet>

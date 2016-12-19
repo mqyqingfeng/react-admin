@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+this.${1} = this.${1}.bind(this);
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>new bind</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+	<description>新建一个事件绑定</description>
+</snippet>

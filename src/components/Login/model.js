@@ -2,7 +2,7 @@
 * @Author: kevin
 * @Date:   2016-11-22 14:26:06
 * @Last Modified by:   kevin
-* @Last Modified time: 2016-11-22 14:50:57
+* @Last Modified time: 2016-12-19 13:08:03
 */
 
 
@@ -10,11 +10,10 @@
 
 import fetch from 'UTIL/fetch.js';
 
-var loginFetch = function (data) {
-    return fetch('/api/login', {
-        method: 'POST',
-        body: data
-    })
-}
+var fetchLogin = (data) => fetch('/api/login', {
+    type: 'POST',
+    data: data
+})
 
-export { loginFetch };
+
+export { fetchLogin };

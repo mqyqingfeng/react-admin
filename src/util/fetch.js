@@ -1,32 +1,75 @@
+/*
+* @Author: kevin
+* @Date:   2016-12-19 12:30:51
+* @Last Modified by:   kevin
+* @Last Modified time: 2016-12-19 12:51:07
+*/
+
 require('es6-promise').polyfill();
 
 import fetch from 'isomorphic-fetch';
 
-export default function(url, options){
+/**
+ * param 将要转为URL参数字符串的对象
+ * key URL参数字符串的前缀
+ * encode true/false 是否进行URL编码,默认为true
+ *
+ * return URL参数字符串
+ */
+const urlEncode = function(param, key, encode) {
 
-	// let formData = new FormData();
+    if (param == null) return '';
 
-	// if (options.body) {
-	// 	Object.keys(options.body).forEach((key) => {
-	// 		formData.append(key, options.body[key])
-	// 	})
-	// }
+    let paramStr = '';
+    let t = typeof(param);
 
-	// options.body = formData;
+    if (t == 'string' || t == 'number' || t == 'boolean') {
 
-	if (options.body) {
-		var bodyString = Object.keys(options.body).reduce((prev, cur) => ( prev + cur + '=' + options.body[cur] + '&'), '');
-		bodyString = bodyString.substr(0, bodyString.length - 1);
-		options.body = bodyString;
+        paramStr += '&' + key + '=' + ((encode == null || encode) ? param : param);
+
+    }
+    else {
+
+        for (let i in param) {
+            let k = key == null ? i : key + (param instanceof Array ? '[' + i + ']' : '[' + i + ']');
+            paramStr += urlEncode(param[i], k, encode);
+        }
+
+    }
+
+    return paramStr;
+
+};
+
+export default function(url, opt){
+
+	let options = {
+		'method': opt.type,
+		'headers': {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		}
+
+	};
+
+	if (opt.data) {
+
+		let bodyString = urlEncode(opt.data);
+
+		bodyString = bodyString.substr(1, bodyString.length);
+
+		if (options.method.toLowerCase() == 'post') {
+
+		    options.body = bodyString;
+
+		}
+		else if (options.method.toLowerCase() == 'get') {
+
+		    url = url + '?' + bodyString;
+
+		}
+
 	}
 
-	options.headers = {
-		    "Content-Type": "application/x-www-form-urlencoded"
-	}
-
-	return fetch(url, options)
-    .then(function(response) {
-        return response.json();
-    })
+	return fetch(url, options).then(response => response.json())
 
 }

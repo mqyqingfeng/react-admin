@@ -1,0 +1,45 @@
+<snippet>
+	<content><![CDATA[
+import React, { PropTypes } from 'react';
+
+import ReactDOM from 'react-dom';
+
+import './${2}.scss';
+
+const propTypes = {
+    optionalString: PropTypes.string,
+    requiredString: PropTypes.string.isRequired
+};
+
+class ${1} extends React.Component {
+
+    constructor() {
+
+        super();
+
+        this.state = {
+
+        };
+    }
+
+    render() {
+
+        return (
+            <div className="${2}-wrap">
+
+            </div>
+        );
+    }
+}
+
+${1}.propTypes = propTypes;
+
+export default ${1};
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>create component.js</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+	<description>创建一个组件文件</description>
+</snippet>

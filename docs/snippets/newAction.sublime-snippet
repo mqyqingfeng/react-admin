@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+export const ${1} = '${1}';
+
+let ${2} = createAction(${1});
+
+export { ${2} };
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>new action</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+	<description>新建一个action</description>
+</snippet>
