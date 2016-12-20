@@ -12,7 +12,7 @@ module.exports = {
 
     getComponent(nextState, cb) {
         require.ensure([], (require) => {
-            cb(null, require('COMPONENTS/Product/Product').default)
+            cb(null, require('COMPONENTS/Content/Product').default)
         })
     }
 }

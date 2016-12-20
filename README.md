@@ -1,21 +1,6 @@
-react
+## 技术选型
 
-webpack
-
-es6
-
-sass
-
-react-hot-loader
-
-antd
-
-react-redux
-
-redux-actions
-
-redux-logger
-
-react-router
-
-react-router-redux
+1. classnames + lodash
+2. redux-action + redux-logger
+3. react + redux + react-router + Immutable + Fetch
+4. webpack + hot-loader

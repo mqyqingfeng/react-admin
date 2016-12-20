@@ -2,7 +2,8 @@
 * @Author: kevin
 * @Date:   2016-12-19 11:20:19
 * @Last Modified by:   kevin
-* @Last Modified time: 2016-12-19 13:28:41
+* @Last Modified time: 2016-12-20 17:21:11
+* @Description: 登陆页面
 */
 
 'use strict';
@@ -21,9 +22,9 @@ import './login.scss';
 
 import * as fetch from './model.js';
 
-import { loginRequest } from '../../redux/actions/login';
+import { loginRequest } from 'ACTIONS/login';
 
-import { withNotify } from 'COMPONENTS/with/withNotify';
+import { withNotify } from 'CONTAINER/with/withNotify';
 
 const createForm = Form.create;
 const FormItem = Form.Item;

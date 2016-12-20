@@ -2,7 +2,7 @@
  * @Author: MiaoQingyu
  * @Date:   2016-10-27 14:00:24
  * @Last Modified by:   kevin
- * @Last Modified time: 2016-11-22 16:52:17
+ * @Last Modified time: 2016-12-20 16:58:45
  */
 
 import { browserHistory } from 'react-router';
@@ -25,12 +25,12 @@ module.exports = {
         }
     },
     indexRoute: {
-        component: require('COMPONENTS/Main/Main').default
+        component: require('COMPONENTS/Content/User').default
     },
 
     getComponent(nextState, cb) {
         require.ensure([], (require) => {
-            cb(null, require('COMPONENTS/App/App').default)
+            cb(null, require('CONTAINER/Container/Main').default)
         })
     }
 

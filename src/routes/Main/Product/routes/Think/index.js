@@ -3,7 +3,7 @@ module.exports = {
 
     getComponents(nextState, cb) {
         require.ensure([], (require) => {
-            cb(null, require('COMPONENTS/Think/Think').default)
+            cb(null, require('COMPONENTS/Content/Product/Think').default)
         })
     }
 }

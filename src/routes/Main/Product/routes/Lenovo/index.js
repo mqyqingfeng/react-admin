@@ -11,7 +11,7 @@ module.exports = {
 
     getComponents(nextState, cb) {
         require.ensure([], (require) => {
-            cb(null, require('COMPONENTS/Lenovo/Lenovo').default)
+            cb(null, require('COMPONENTS/Content/Product/Lenovo').default)
         })
     }
 }

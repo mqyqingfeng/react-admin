@@ -21,7 +21,7 @@ app.use(devMiddleware(compiler, {
 app.use(hotMiddleware(compiler));
 
 
-const login = require('./server/login.js');
+// const login = require('./server/login.js');
 
 app.use(express.static(__dirname))
 

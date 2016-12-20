@@ -29,7 +29,7 @@ let mockConfig = [
             	data: null
         	}
        	],
-        "position": 1
+        "position": 0
     },
     {
     	"name": "login2",
