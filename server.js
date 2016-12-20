@@ -4,6 +4,8 @@ var express = require('express');
 var devMiddleware = require('webpack-dev-middleware');
 var hotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config');
+var fs = require('fs');
+var _ = require('lodash');
 
 var bodyParser = require('body-parser')
 var app = express();
@@ -37,36 +39,36 @@ app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'src/index.html'));
 });
 
+var mockConfigWrap = require('./mockConfig.js');
 
-var mockConfig = require('./mockConfig.js');
+var mockConfig = mockConfigWrap.mockConfig;
 
-console.log(mockConfig.length)
+for (var i = 0; i < mockConfig.length; i++) {
 
+    var url = mockConfig[i].url;
 
-for (var i = 0; i < mockConfig.mock.length; i++) {
+    var position = mockConfig[i].position;
 
-    if (mockConfig.mock[i].type == 'post') {
-        console.log('建立成功')
-        console.log(mockConfig.mock[i].url)
+    var resData = mockConfig[i].response[position]
 
-        var resData = mockConfig.mock[i].resData
-        app.post(mockConfig.mock[i].url, function(req, res, next) {
-            console.log(mockConfig.mock[i])
-            res.json({
-                status: 200,
-                data: resData
-            });
+    if (mockConfig[i].type == 'post') {
+
+        app.post(url, function(req, res, next) {
+            var data = _.find(mockConfig, function(o) { return o.url == req.route.path; })
+            var position = data.position;
+            res.json(data.response[position]);
         })
+
+    } else if (mockConfig[i].type == 'get') {
+
+        app.get(url, function(req, res, next) {
+            var data = _.find(mockConfig, function(o) { return o.url == req.route.path; })
+            var position = data.position;
+            res.json(data.response[position]);
+        })
+
     }
 }
-
-// app.post('/api/login', function(req, res, next) {
-//     console.log(req)
-//     res.json({
-//         status: 200,
-//         data: 111
-//     });
-// })
 
 // app.post('/api/login', login.login);
 
