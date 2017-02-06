@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import { createSelector } from 'reselect';
 import { connect } from 'react-redux';
 
+import { is } from 'immutable';
+
 import { notification } from 'antd';
 
 require('./header.scss');
@@ -12,7 +14,11 @@ const contextTypes = {
     router: PropTypes.object.isRequired
 }
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
+
+    constructor(props) {
+        super(props);
+    }
 
     loginOut() {
         localStorage.clear();
@@ -21,12 +27,12 @@ class Header extends React.Component {
     }
 
     render() {
-
+        console.log('头部组件被渲染了一次')
         return (
             <div className="header">
-      			header-{this.props.nav.navText}
+                header-{this.props.nav.navText}
                 <a href="javascript:void(0)" className="loginOut-btn" onClick={this.loginOut.bind(this)}>注销</a>
-      		</div>
+            </div>
         );
 
     }
@@ -35,12 +41,12 @@ class Header extends React.Component {
 Header.contextTypes = contextTypes;
 
 // const todoSelector = createSelector(
-// 	state => state.nav.navText,
-// 	navText => {
-// 		console.log("计算了一次");
-// 		console.log(navText);
-// 		return navText + '1111';
-// 	}
+//  state => state.nav.navText,
+//  navText => {
+//      console.log("计算了一次");
+//      console.log(navText);
+//      return navText + '1111';
+//  }
 // )
 
 const todoSelector = createSelector(

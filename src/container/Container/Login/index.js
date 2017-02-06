@@ -1,8 +1,8 @@
 /*
 * @Author: kevin
 * @Date:   2016-12-19 11:20:19
-* @Last Modified by:   kevin
-* @Last Modified time: 2016-12-20 17:21:11
+* @Last Modified by:   mqyqingfeng
+* @Last Modified time: 2017-02-06 11:51:38
 * @Description: 登陆页面
 */
 
@@ -93,7 +93,7 @@ class Login extends React.Component {
         return (
             <div className="login-wrap">
                 <Form horizontal>
-                    <p className="login-title">联想后台管理系统</p>
+                    <p className="login-title">后台管理系统</p>
                     <FormItem {...formItemLayout} hasFeedback>
 
                         {getFieldDecorator('userName', {
