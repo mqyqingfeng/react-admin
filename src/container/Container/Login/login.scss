@@ -1,9 +1,16 @@
 /*
 * @Author: kevin
 * @Date:   2016-11-14 12:36:42
-* @Last Modified by:   kevin
-* @Last Modified time: 2016-11-14 13:11:29
+* @Last Modified by:   mqyqingfeng
+* @Last Modified time: 2017-02-06 14:56:56
 */
+
+.login-container {
+	width: 100%;
+	height: 100%;
+	background: #fff url(./loginBg.jpg) no-repeat 0 0;
+	background-size: cover;
+}
 
 .login-wrap {
 	width: 300px;
@@ -21,16 +28,11 @@
 	.ant-btn {
 		width: 100%;
 	}
+	@at-root .login-title {
+		font-size: 16px;
+		text-align: center;
+		line-height: 30px;
+		margin-bottom: 10px;
+		color: #fff;
+	}
 }
-
-.login-title {
-	font-size: 16px;
-	text-align: center;
-	line-height: 30px;
-	margin-bottom: 10px;
-	color: #fff;
-}
-
-// body {
-// 	background-color: #5B5B5B;
-// }

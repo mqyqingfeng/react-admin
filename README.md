@@ -4,10 +4,10 @@ React脚手架，专用作后台管理系统，并且提供丰富的示例代码
 
 ## 技术选型
 
-1. classnames + lodash
-2. redux-action + redux-logger
-3. react + redux + react-router + Immutable + Fetch + ant-design
-4. webpack + hot-loader
+* classnames + lodash
+* redux-action + redux-logger
+* react + redux + react-router + Immutable + Fetch + ant-design
+* webpack + hot-loader
 
 ## 使用方法
 

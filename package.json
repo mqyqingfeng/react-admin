@@ -32,7 +32,9 @@
     "babel-polyfill": "^6.16.0",
     "body-parser": "^1.15.2",
     "redux-devtools-log-monitor": "^1.1.1",
-    "redux-devtools-dock-monitor": "^1.1.1"
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "url-loader": "^0.5.7",
+    "file-loader": "^0.10.0"
   },
   "dependencies": {
     "react-redux": "^4.4.6",

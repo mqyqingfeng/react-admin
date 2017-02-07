@@ -1,8 +1,8 @@
 /*
 * @Author: kevin
 * @Date:   2016-12-20 16:23:47
-* @Last Modified by:   kevin
-* @Last Modified time: 2016-12-20 16:24:07
+* @Last Modified by:   mqyqingfeng
+* @Last Modified time: 2017-02-06 14:51:53
 * @Description: 用来切换login页面和index页面的container
 */
 
@@ -16,7 +16,7 @@ class Container extends React.Component {
 
     render(){
         return (
-        	<div>
+        	<div className="root-wrap">
         		{this.props.children || '没有内容，请刷新页面'}
         	</div>
         );
