@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint src"
+    "build": "rimraf build && webpack --config webpack.production.config.js && node server.production.js"
   },
   "author": "kevin",
   "license": "ISC",
@@ -34,7 +34,10 @@
     "redux-devtools-log-monitor": "^1.1.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "url-loader": "^0.5.7",
-    "file-loader": "^0.10.0"
+    "file-loader": "^0.10.0",
+    "rimraf": "^2.5.4",
+    "html-webpack-plugin": "^2.28.0",
+    "extract-text-webpack-plugin": "^1.0.1"
   },
   "dependencies": {
     "react-redux": "^4.4.6",
@@ -48,7 +51,7 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "lodash": "^4.17.2",
+    "lodash": "^4.17.4",
     "isomorphic-fetch": "^2.2.1",
     "es6-promise": "^4.0.5",
     "redux-saga": "^0.13.0",
