@@ -1,8 +1,8 @@
 /*
 * @Author: kevin
 * @Date:   2016-12-20 16:19:30
-* @Last Modified by:   kevin
-* @Last Modified time: 2016-12-20 16:44:32
+* @Last Modified by:   mqyqingfeng
+* @Last Modified time: 2017-02-06 15:42:05
 * @Description: Redux的包裹组件和React-router的使用
 */
 
@@ -40,9 +40,9 @@ notification.config({
 const rootRoute = {
     childRoutes: [{
         path: '/',
-        component: require('CONTAINER/Container').default,
+        component: require('LAYOUTS/Container').default,
         indexRoute: {
-            component: require('CONTAINER/Container/Login').default
+            component: require('LAYOUTS/Container/Login').default
         },
         childRoutes: [
             require('ROUTES/Login'),

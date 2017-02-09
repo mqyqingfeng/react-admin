@@ -2,7 +2,7 @@
 * @Author: kevin
 * @Date:   2016-12-19 11:20:19
 * @Last Modified by:   mqyqingfeng
-* @Last Modified time: 2017-02-06 14:52:57
+* @Last Modified time: 2017-02-06 15:44:13
 * @Description: 登陆页面
 */
 
@@ -24,7 +24,7 @@ import * as fetch from './model.js';
 
 import { loginRequest } from 'ACTIONS/login';
 
-import { withNotify } from 'CONTAINER/with/withNotify';
+import { withNotify } from 'WITH/withNotify';
 
 const createForm = Form.create;
 const FormItem = Form.Item;

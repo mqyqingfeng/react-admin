@@ -1,8 +1,8 @@
 /*
 * @Author: kevin
 * @Date:   2016-12-20 16:11:32
-* @Last Modified by:   kevin
-* @Last Modified time: 2016-12-20 17:11:17
+* @Last Modified by:   mqyqingfeng
+* @Last Modified time: 2017-02-06 15:40:36
 * @Description: main.js 入口文件
 */
 
@@ -12,7 +12,7 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import Provider from 'CONTAINER/Provider';
+import Provider from 'LAYOUTS/Provider';
 
 const rootEl = document.getElementById('root');
 
@@ -25,11 +25,11 @@ ReactDOM.render(
 
 if (module.hot) {
 
-    module.hot.accept('CONTAINER/Provider', () => {
+    module.hot.accept('LAYOUTS/Provider', () => {
 
         // If you use Webpack 2 in ES modules mode, you can
         // use <App /> here rather than require() a <NextApp />.
-        const NextApp = require('CONTAINER/Provider').default;
+        const NextApp = require('LAYOUTS/Provider').default;
 
         ReactDOM.render(
             <AppContainer>

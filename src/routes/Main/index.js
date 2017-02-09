@@ -1,8 +1,8 @@
 /*
  * @Author: MiaoQingyu
  * @Date:   2016-10-27 14:00:24
- * @Last Modified by:   kevin
- * @Last Modified time: 2016-12-20 16:58:45
+ * @Last Modified by:   mqyqingfeng
+ * @Last Modified time: 2017-02-06 15:42:32
  */
 
 import { browserHistory } from 'react-router';
@@ -30,7 +30,7 @@ module.exports = {
 
     getComponent(nextState, cb) {
         require.ensure([], (require) => {
-            cb(null, require('CONTAINER/Container/Main').default)
+            cb(null, require('LAYOUTS/Container/Main').default)
         })
     }
 
