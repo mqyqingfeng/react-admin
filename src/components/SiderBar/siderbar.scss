@@ -3,6 +3,22 @@
 	float: left;
 	background-color: #404040;
 	color: #fff;
+	.ant-menu-item {
+		padding-left: 0px!important;
+		padding-right: 0px;
+		a {
+			color: #fff;
+			width: 100%;
+			height: 100%;
+			padding-left: 48px;
+		}
+	}
+
+	.ant-menu-item-selected.ant-menu-item {
+		background-color: transparent;
+	}
+
+
 }
 
 .header-title {
