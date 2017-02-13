@@ -1,11 +1,11 @@
 {
   "name": "adminbase",
   "version": "1.0.0",
-  "description": "Lenovo FED adminbase",
+  "description": "Lenovo FED react-base",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rimraf build && webpack --config webpack.production.config.js && node server.production.js"
+    "build": "rimraf build && webpack --config webpack.production.config.js --progress && node server.production.js"
   },
   "author": "kevin",
   "license": "ISC",
@@ -37,7 +37,8 @@
     "file-loader": "^0.10.0",
     "rimraf": "^2.5.4",
     "html-webpack-plugin": "^2.28.0",
-    "extract-text-webpack-plugin": "^1.0.1"
+    "extract-text-webpack-plugin": "^1.0.1",
+    "babel-plugin-import": "^1.1.0"
   },
   "dependencies": {
     "react-redux": "^4.4.6",

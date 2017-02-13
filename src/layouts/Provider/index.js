@@ -2,7 +2,7 @@
 * @Author: kevin
 * @Date:   2016-12-20 16:19:30
 * @Last Modified by:   mqyqingfeng
-* @Last Modified time: 2017-02-06 17:10:30
+* @Last Modified time: 2017-02-07 10:08:06
 * @Description: Redux的包裹组件和React-router的使用
 */
 
@@ -20,13 +20,9 @@ import createLogger from 'redux-logger';
 
 import reducers from '../../redux/reducers/index.js';
 
-import 'antd/dist/antd.css';
-
 import './global.scss';
 
 import { notification } from 'antd';
-
-// import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 const logger = createLogger();
 
@@ -34,8 +30,6 @@ const store = createStore(
     reducers,
     applyMiddleware(logger)
 );
-
-// const history = syncHistoryWithStore(browserHistory, store);
 
 notification.config({
   top: 45

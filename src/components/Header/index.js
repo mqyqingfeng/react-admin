@@ -27,7 +27,7 @@ class Header extends React.PureComponent {
     }
 
     render() {
-        console.log('头部组件被渲染了一次')
+        console.log('头部组件被渲染了一次111')
         return (
             <div className="header">
                 header-{this.props.nav.navText}
