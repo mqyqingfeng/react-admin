@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var src = path.join(__dirname, 'src'); // 开发源码目录
 
@@ -28,6 +29,11 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            inject: 'body',
+            filename: 'index.html'
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
     ],
