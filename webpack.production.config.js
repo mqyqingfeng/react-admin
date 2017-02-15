@@ -50,7 +50,7 @@ module.exports = {
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new HtmlWebpackPlugin({
-            template: 'index.html',
+            template: 'index.tpl.html',
             inject: 'body',
             filename: 'index.html'
         }),

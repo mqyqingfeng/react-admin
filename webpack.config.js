@@ -12,7 +12,7 @@ module.exports = {
         './src/main'
     ],
     output: {
-        path: path.join(__dirname, 'build'),
+        path: path.join(__dirname, 'src'),
         filename: 'bundle.js',
         publicPath: '/static/'
     },
@@ -29,13 +29,13 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
-        new HtmlWebpackPlugin({
-            template: 'index.html',
-            inject: 'body',
-            filename: 'index.html'
-        }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'index.tpl.html',
+            inject: 'body',
+            filename: 'index.html'
+        })
     ],
     module: {
         loaders: [{

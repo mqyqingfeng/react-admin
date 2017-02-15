@@ -13,17 +13,16 @@ var compiler = webpack(config);
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(devMiddleware(compiler, {
+const devMiddlewareResult = devMiddleware(compiler, {
     publicPath: config.output.publicPath,
     historyApiFallback: true,
-}));
+})
 
 app.use(hotMiddleware(compiler));
 
+app.use(devMiddlewareResult);
 
-// const login = require('./server/login.js');
-
-app.use(express.static(__dirname))
+app.use(express.static(__dirname));
 
 app.all('*', function(req, res, next) {
 
@@ -36,7 +35,10 @@ app.all('*', function(req, res, next) {
 })
 
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'src/index.html'));
+
+    const htmlBuffer = devMiddlewareResult.fileSystem.readFileSync(`${config.output.path}/index.html`)
+
+    res.send(htmlBuffer.toString())
 });
 
 var mockConfigWrap = require('./mockConfig.js');
@@ -70,12 +72,10 @@ for (var i = 0; i < mockConfig.length; i++) {
     }
 }
 
-// app.post('/api/login', login.login);
-
 app.listen(5000, function(err) {
     if (err) {
         return console.error(err);
     }
 
-    console.log('Listening at http://localhost:5000/');
+    console.log('Listening at http://localhost:5000/, waiting for compile');
 });

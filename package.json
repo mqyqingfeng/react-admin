@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rimraf build && webpack --config webpack.production.config.js --progress && node server.production.js"
+    "build": "rimraf build && webpack --config webpack.production.config.js --progress && node server.production.js",
+    "test": "webpack --config webpack.config.js --progress"
   },
   "author": "kevin",
   "license": "ISC",
@@ -25,7 +26,7 @@
     "express": "^4.14.0",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.14.1",
-    "webpack-dev-middleware": "^1.8.4",
+    "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.13.2",
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.15.0",
