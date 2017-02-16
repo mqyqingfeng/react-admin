@@ -2,7 +2,7 @@
 * @Author: kevin
 * @Date:   2016-12-20 16:19:30
 * @Last Modified by:   mqyqingfeng
-* @Last Modified time: 2017-02-08 17:10:18
+* @Last Modified time: 2017-02-08 17:37:07
 * @Description: Redux的包裹组件和React-router的使用
 */
 
@@ -32,7 +32,7 @@ const store = createStore(
 );
 
 notification.config({
-  top: 45
+    top: 45
 });
 
 const rootRoute = {
