@@ -47,6 +47,6 @@ $ npm run build
 
 ## 页面演示
 
-![登陆页](README/login.png)
+![登陆页](README/login.jpg)
 ![内容页](README/content.png)
 
