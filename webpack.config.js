@@ -14,7 +14,8 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'src'),
         filename: 'bundle.js',
-        publicPath: '/static/'
+        publicPath: '/static/',
+        chunkFilename: '[name].js'
     },
     resolve: {
         extensions: ['', '.js', '.json'],

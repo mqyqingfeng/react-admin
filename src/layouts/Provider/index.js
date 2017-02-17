@@ -2,7 +2,7 @@
 * @Author: kevin
 * @Date:   2016-12-20 16:19:30
 * @Last Modified by:   mqyqingfeng
-* @Last Modified time: 2017-02-08 17:37:07
+* @Last Modified time: 2017-02-17 10:18:29
 * @Description: Redux的包裹组件和React-router的使用
 */
 
@@ -14,7 +14,7 @@ import { createStore, applyMiddleware } from 'redux';
 
 import { Provider } from 'react-redux';
 
-import { Router, browserHistory } from 'react-router';
+import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 
 import createLogger from 'redux-logger';
 
@@ -35,25 +35,65 @@ notification.config({
     top: 45
 });
 
-const rootRoute = {
-    childRoutes: [{
-        path: '/',
-        component: require('LAYOUTS/Container').default,
-        indexRoute: {
-            component: require('LAYOUTS/Container/Login').default
-        },
-        childRoutes: [
-            require('ROUTES/Login'),
-            require('ROUTES/Main')
-        ]
-    }]
+import Container from 'LAYOUTS/Container';
+import Login from 'LAYOUTS/Container/Login';
+
+const Main = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('LAYOUTS/Container/Main').default)
+    },'main')
+}
+
+const User = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('COMPONENTS/Content/User').default)
+    },'user')
+}
+
+const Product = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('COMPONENTS/Content/Product').default)
+    },'product')
+}
+
+const Think = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('COMPONENTS/Content/Product/Think').default)
+    },'think')
+}
+
+const Lenovo = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('COMPONENTS/Content/Product/Lenovo').default)
+    },'lenovo')
+}
+
+const ProductInfo = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('COMPONENTS/Content/Product/Lenovo/ProductInfo').default)
+    },'productInfo')
 }
 
 class Root extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <Router history={browserHistory} routes={rootRoute} />
+                <Router history={browserHistory}>
+                    <Route path="/" component={Container}>
+                        <IndexRoute component={Login} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/index" getComponent={Main} >
+                            <IndexRoute getComponent={User} />
+                            <Route path="/index/user" getComponent={User} />
+                            <Route path="/index/product" getComponent={Product}>
+                                <Route path="/index/product/think" getComponent={Think} />
+                                <Route path="/index/product/lenovo" getComponent={Lenovo} >
+                                    <Route path="/index/product/lenovo/:productId" getComponent={ProductInfo} />
+                                </Route>
+                            </Route>
+                        </Route>
+                    </Route>
+                </Router>
             </Provider>
         );
     }
