@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rimraf build && webpack --config webpack.production.config.js --progress && node server.production.js",
-    "test": "webpack --config webpack.config.js --progress"
+    "build": "rimraf build && webpack --config webpack.production.config.js --progress && node server.production.js"
   },
   "author": "kevin",
   "license": "ISC",
