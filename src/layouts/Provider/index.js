@@ -2,7 +2,7 @@
 * @Author: kevin
 * @Date:   2016-12-20 16:19:30
 * @Last Modified by:   mqyqingfeng
-* @Last Modified time: 2017-02-17 16:22:57
+* @Last Modified time: 2017-02-17 16:45:30
 * @Description: Redux的包裹组件和React-router的使用
 */
 
@@ -80,6 +80,12 @@ const authRequired = (location, cb) => {
     }
 }
 
+const NotFound = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('LAYOUTS/Container/NotFound').default)
+    },'notfound')
+}
+
 class Root extends React.Component {
     render() {
         return (
@@ -98,6 +104,7 @@ class Root extends React.Component {
                                 </Route>
                             </Route>
                         </Route>
+                        <Route path="*" getComponent={NotFound} />
                     </Route>
                 </Router>
             </Provider>
