@@ -4,10 +4,14 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var _ = require('lodash');
 
-var src = path.join(__dirname, 'src'); // 开发源码目录
+var config = require('./webpack.base.config.js');
 
-module.exports = {
+var rootPath = path.resolve(__dirname, '..'); // 项目根目录
+var src = path.join(rootPath, 'src'); // 开发源码目录
+
+module.exports =  _.merge(config, {
     entry: {
       //业务代码
       bundle: './src/main',
@@ -15,21 +19,10 @@ module.exports = {
       vendor: ["react", "react-dom", "react-redux"]
     },
     output: {
-        path: path.join(__dirname, 'build'),
+        path: path.join(rootPath, 'dist'),
         filename: "[name]-[hash].min.js",
-        publicPath: '/build/',
+        publicPath: '/dist/',
         chunkFilename: '[name]-[hash].chunk.js'
-    },
-    resolve: {
-        extensions: ['', '.js', '.json'],
-        alias: {
-            COMPONENTS: path.join(src, 'components'),
-            LAYOUTS: path.join(src, 'layouts'),
-            ROUTES: path.join(src, 'routes'),
-            UTIL: path.join(src, 'util'),
-            ACTIONS: path.join(src, 'redux/actions'),
-            WITH: path.join(src, 'with')
-        }
     },
     module: {
         loaders: [{
@@ -69,4 +62,4 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify('production')
         })
     ]
-};
+});

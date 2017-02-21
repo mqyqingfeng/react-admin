@@ -4,8 +4,8 @@
   "description": "Lenovo FED react-base",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "rimraf build && webpack --config webpack.production.config.js --progress && node server.production.js"
+    "start": "node build/server.dev.js",
+    "build": "rimraf dist && webpack --config build/webpack.prod.config.js --progress && node build/server.prod.js"
   },
   "author": "kevin",
   "license": "ISC",

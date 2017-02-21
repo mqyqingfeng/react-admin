@@ -1,30 +1,49 @@
 var path = require('path');
 var webpack = require('webpack');
 var express = require('express');
-
-var config = require('./webpack.config');
-
-var app = express();
-var compiler = webpack(config);
+var devMiddleware = require('webpack-dev-middleware');
+var hotMiddleware = require('webpack-hot-middleware');
+var config = require('./webpack.dev.config');
+var fs = require('fs');
 var _ = require('lodash');
 
-app.use(express.static(__dirname))
+var bodyParser = require('body-parser')
+var app = express();
+var compiler = webpack(config);
 
-app.all('*',function(req,res,next){
+app.use(bodyParser.urlencoded({ extended: false }))
+
+const devMiddlewareResult = devMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+    historyApiFallback: true,
+})
+
+var rootPath = path.resolve(__dirname, '..');
+
+app.use(hotMiddleware(compiler));
+
+app.use(devMiddlewareResult);
+
+app.use(express.static(rootPath));
+
+app.all('*', function(req, res, next) {
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.header("X-Powered-By",' 3.2.1')
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By", ' 3.2.1')
     res.header("Content-Type", "text/html");
     next();
 })
 
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/index.html'));
+app.get('*', function(req, res) {
+
+    const htmlBuffer = devMiddlewareResult.fileSystem.readFileSync(`${config.output.path}/index.html`)
+
+    res.send(htmlBuffer.toString())
 });
 
-var mockConfigWrap = require('./mockConfig.js');
+var mockConfigWrap = require('../mockConfig.js');
 
 var mockConfig = mockConfigWrap.mockConfig;
 
@@ -55,10 +74,10 @@ for (var i = 0; i < mockConfig.length; i++) {
     }
 }
 
-app.listen(3001, function (err) {
-  if (err) {
-    return console.error(err);
-  }
+app.listen(5000, function(err) {
+    if (err) {
+        return console.error(err);
+    }
 
-  console.log('Listening at http://localhost:3001/');
+    console.log('Listening at http://localhost:5000/, waiting for compile');
 });
