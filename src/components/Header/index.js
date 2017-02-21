@@ -1,72 +1,41 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+
 import ReactDOM from 'react-dom';
-
-import { createSelector } from 'reselect';
-import { connect } from 'react-redux';
-
-import { is } from 'immutable';
 
 import { notification } from 'antd';
 
-require('./header.scss');
+import { browserHistory } from 'react-router';
 
-const contextTypes = {
-    router: PropTypes.object.isRequired
-}
+require('./header.scss');
 
 class Header extends React.PureComponent {
 
     constructor(props) {
+
         super(props);
+
+        this.loginOut = this.loginOut.bind(this);
+
     }
 
     loginOut() {
+
         localStorage.clear();
+
         notification.destroy();
-        this.context.router.replace('/login');
+
+        browserHistory.push('/login')
+
     }
 
     render() {
-        console.log('头部组件被渲染了一次111')
         return (
             <div className="header">
-                header-{this.props.nav.navText}
-                <a href="javascript:void(0)" className="loginOut-btn" onClick={this.loginOut.bind(this)}>注销</a>
+                <a href="javascript:void(0)" className="loginOut-btn" onClick={this.loginOut}>注销</a>
             </div>
         );
 
     }
 }
 
-Header.contextTypes = contextTypes;
-
-// const todoSelector = createSelector(
-//  state => state.nav.navText,
-//  navText => {
-//      console.log("计算了一次");
-//      console.log(navText);
-//      return navText + '1111';
-//  }
-// )
-
-const todoSelector = createSelector(
-    state => state.nav,
-    nav => {
-        return nav;
-    }
-)
-
-const mapStateToProps = (state, ownProps) => {
-    return {
-        nav: todoSelector(state),
-        params: ownProps.params
-    }
-}
-
-// function mapStateToProps(state) {
-//   return {
-//     nav: state.nav
-//   }
-// }
-
-export default connect(mapStateToProps)(Header);
+export default Header;

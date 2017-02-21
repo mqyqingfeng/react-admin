@@ -1,13 +1,3 @@
-/*
- * @Author: kevin
- * @Date:   2016-12-19 11:17:07
- * @Last Modified by:   kevin
- * @Last Modified time: 2016-12-19 16:59:19
- * @Description: 组件的基本示例以及Immutable和classNames的使用示例
- */
-
-'use strict';
-
 import React, { PropTypes } from 'react';
 
 import ReactDOM from 'react-dom';

@@ -1,10 +1,3 @@
-/*
-* @Author: kevin
-* @Date:   2016-12-19 12:30:51
-* @Last Modified by:   kevin
-* @Last Modified time: 2016-12-19 12:51:07
-*/
-
 require('es6-promise').polyfill();
 
 import fetch from 'isomorphic-fetch';

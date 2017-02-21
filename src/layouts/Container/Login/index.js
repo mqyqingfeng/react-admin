@@ -1,13 +1,3 @@
-/*
-* @Author: kevin
-* @Date:   2016-12-19 11:20:19
-* @Last Modified by:   mqyqingfeng
-* @Last Modified time: 2017-02-06 15:44:13
-* @Description: 登陆页面
-*/
-
-'use strict';
-
 import React, { PropTypes } from 'react';
 
 import ReactDOM from 'react-dom';
