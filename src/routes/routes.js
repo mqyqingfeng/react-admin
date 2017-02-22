@@ -11,10 +11,16 @@ const Main = (location, cb) => {
     },'main')
 }
 
-const User = (location, cb) => {
+const authRequired = (location, cb) => {
+    if (!localStorage.getItem('userData')) {
+        browserHistory.push('/login');
+    }
+}
+
+const NotFound = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('COMPONENTS/Content/User').default)
-    },'user')
+        cb(null, require('LAYOUTS/Container/NotFound').default)
+    },'notfound')
 }
 
 const Product = (location, cb) => {
@@ -41,16 +47,16 @@ const ProductInfo = (location, cb) => {
     },'productInfo')
 }
 
-const authRequired = (location, cb) => {
-    if (!localStorage.getItem('userData')) {
-        browserHistory.push('/login');
-    }
+const Redux = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('COMPONENTS/Content/Redux').default)
+    },'redux')
 }
 
-const NotFound = (location, cb) => {
+const Fetch = (location, cb) => {
     require.ensure([], require => {
-        cb(null, require('LAYOUTS/Container/NotFound').default)
-    },'notfound')
+        cb(null, require('COMPONENTS/Content/Fetch').default)
+    },'fetch')
 }
 
 export default (
@@ -58,8 +64,9 @@ export default (
 	    <IndexRoute component={Login} />
 	    <Route path="/login" component={Login} />
 	    <Route path="/index" onEnter={authRequired} getComponent={Main} >
-	        <IndexRoute getComponent={User} />
-	        <Route path="/index/user" getComponent={User} />
+	        <IndexRoute getComponent={Redux} />
+            <Route path="/index/redux" getComponent={Redux} />
+	        <Route path="/index/fetch" getComponent={Fetch} />
 	        <Route path="/index/product" getComponent={Product}>
 	            <Route path="/index/product/think" getComponent={Think} />
 	            <Route path="/index/product/lenovo" getComponent={Lenovo} >

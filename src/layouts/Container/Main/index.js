@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ReactDOM from 'react-dom';
-
 import Header from 'COMPONENTS/Header';
 
 import SiderBar from 'COMPONENTS/SiderBar';

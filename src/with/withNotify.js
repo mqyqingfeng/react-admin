@@ -38,7 +38,6 @@ export let withNotify = ComponsedComponent => class extends React.Component {
     }
 
     render() {
-
         return <ComponsedComponent notify={this.notify} {...this.props} {...this.state} />;
     }
 };

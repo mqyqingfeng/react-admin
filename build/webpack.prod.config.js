@@ -1,5 +1,3 @@
-'use strict';
-
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,8 +6,10 @@ var _ = require('lodash');
 
 var config = require('./webpack.base.config.js');
 
-var rootPath = path.resolve(__dirname, '..'); // 项目根目录
-var src = path.join(rootPath, 'src'); // 开发源码目录
+ // 项目根目录
+var rootPath = path.resolve(__dirname, '..');
+ // 开发源码目录
+var src = path.join(rootPath, 'src');
 
 module.exports =  _.merge(config, {
     entry: {

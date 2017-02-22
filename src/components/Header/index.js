@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ReactDOM from 'react-dom';
-
 import { notification } from 'antd';
 
 import { browserHistory } from 'react-router';

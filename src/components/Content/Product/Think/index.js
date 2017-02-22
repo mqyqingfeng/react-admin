@@ -1,20 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import { Link } from 'react-router'
 
 class Think extends React.Component {
-    render() {
 
-        let { children, params } = this.props;
+    render() {
 
         return (
             <div>
-      			    Think 系列
-      		  </div>
+      			你选择了 Think 系列
+      		</div>
         );
 
     }
+
 }
 
 export default Think;

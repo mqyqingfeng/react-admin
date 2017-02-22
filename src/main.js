@@ -19,8 +19,6 @@ if (module.hot) {
 
     module.hot.accept('LAYOUTS/Provider', () => {
 
-        // If you use Webpack 2 in ES modules mode, you can
-        // use <App /> here rather than require() a <NextApp />.
         const NextApp = require('LAYOUTS/Provider').default;
 
         ReactDOM.render(

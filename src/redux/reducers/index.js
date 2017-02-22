@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
 
-import nav from './nav';
-import login from './login';
+import selectProduct from './selectProduct';
 
 const app = combineReducers({
-    nav,
-    login
+    selectProduct
 });
 
 export default app;

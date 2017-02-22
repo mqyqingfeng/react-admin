@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ReactDOM from 'react-dom';
-
 import { connect } from 'react-redux';
 
 import { Link, browserHistory } from 'react-router';
@@ -41,14 +39,20 @@ class SiderBar extends React.Component {
                     defaultOpenKeys={['IndexPageManager', 'RouterManager']}
                     mode="inline"
                 >
-                    <SubMenu key="IndexPageManager" title={<span><Icon type="mail" /><span>首页管理</span></span>}>
-                        <Menu.Item key="WelcomePage">
-                            <Link to="/index/user" activeStyle={ACTIVE}>欢迎页面</Link>
+                    <SubMenu key="IndexPageManager" title={<span><Icon type="mail" /><span>功能演示</span></span>}>
+                        <Menu.Item key="redux">
+                            <Link to="/index/redux" activeStyle={ACTIVE}>Redux传递数据</Link>
+                        </Menu.Item>
+                        <Menu.Item key="fetch">
+                            <Link to="/index/fetch" activeStyle={ACTIVE}>fetch加载数据</Link>
+                        </Menu.Item>
+                        <Menu.Item key="dynamicRoute">
+                            <Link to="/index/product" activeStyle={ACTIVE}>动态路由加载</Link>
                         </Menu.Item>
                     </SubMenu>
-                    <SubMenu key="RouterManager" title={<span><Icon type="appstore" /><span>路由管理</span></span>}>
-                        <Menu.Item key="DynamicRouter">
-                            <Link to="/index/product" activeStyle={ACTIVE}>动态路由加载</Link>
+                    <SubMenu key="RouterManager" title={<span><Icon type="appstore" /><span>其他</span></span>}>
+                        <Menu.Item key="notfound">
+                            <Link to="/index/notfound" activeStyle={ACTIVE}>404页面</Link>
                         </Menu.Item>
                     </SubMenu>
                 </Menu>

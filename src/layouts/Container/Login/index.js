@@ -1,9 +1,5 @@
 import React, { PropTypes } from 'react';
 
-import ReactDOM from 'react-dom';
-
-import { connect } from 'react-redux';
-
 import { browserHistory } from 'react-router';
 
 import { Button, Form, Input, notification } from 'antd';
@@ -12,16 +8,10 @@ import './login.scss';
 
 import * as fetch from './model.js';
 
-import { loginRequest } from 'ACTIONS/login';
-
 import { withNotify } from 'WITH/withNotify';
 
 const createForm = Form.create;
 const FormItem = Form.Item;
-
-const contextTypes = {
-    router: PropTypes.object.isRequired
-}
 
 function noop() {
     return false;
@@ -58,8 +48,7 @@ class Login extends React.Component {
 
                     localStorage.setItem('userData', JSON.stringify(res.data));
 
-                    browserHistory.push('/index')
-                    // this.context.router.replace('/index');
+                    browserHistory.push('/index');
 
                 }
                 else {
@@ -128,10 +117,4 @@ class Login extends React.Component {
     }
 }
 
-Login.contextTypes = contextTypes;
-
-function mapStateToProps(state) {
-    return { login: state.login };
-}
-
-export default connect(mapStateToProps)(createForm()(withNotify(Login)));
+export default createForm()(withNotify(Login));

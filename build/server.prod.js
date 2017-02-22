@@ -1,16 +1,15 @@
 var path = require('path');
 var webpack = require('webpack');
 var express = require('express');
+var _ = require('lodash');
 
 var config = require('./webpack.prod.config');
 
 var app = express();
+
 var compiler = webpack(config);
-var _ = require('lodash');
 
 var rootPath = path.resolve(__dirname, '..');
-
-app.use(express.static(rootPath))
 
 app.all('*',function(req,res,next){
 
@@ -22,10 +21,13 @@ app.all('*',function(req,res,next){
     next();
 })
 
+app.use(express.static(rootPath))
+
 app.get('*', function (req, res) {
   res.sendFile(path.join(rootPath, 'dist/index.html'));
 });
 
+//Mock配置
 var mockConfigWrap = require('../mockConfig.js');
 
 var mockConfig = mockConfigWrap.mockConfig;
@@ -58,9 +60,11 @@ for (var i = 0; i < mockConfig.length; i++) {
 }
 
 app.listen(3001, function (err) {
+
   if (err) {
     return console.error(err);
   }
 
   console.log('Listening at http://localhost:3001/');
+
 });

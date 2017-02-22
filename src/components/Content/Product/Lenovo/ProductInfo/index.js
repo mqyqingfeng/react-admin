@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class ProductInfo extends React.Component {
     render() {
@@ -8,7 +7,7 @@ class ProductInfo extends React.Component {
 
         return (
             <div>
-      			ProductInfo 编号 {params.productId}
+      			你选择的是 {params.productId}, 该数据来源于路由的参数
       		</div>
         );
     }
