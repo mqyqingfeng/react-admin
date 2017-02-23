@@ -59,6 +59,12 @@ const Fetch = (location, cb) => {
     },'fetch')
 }
 
+const Empty = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('COMPONENTS/Content/Empty').default)
+    },'fetch')
+}
+
 export default (
 	<Route path="/" component={Container}>
 	    <IndexRoute component={Login} />
@@ -66,7 +72,8 @@ export default (
 	    <Route path="/index" onEnter={authRequired} getComponent={Main} >
 	        <IndexRoute getComponent={Redux} />
             <Route path="/index/redux" getComponent={Redux} />
-	        <Route path="/index/fetch" getComponent={Fetch} />
+            <Route path="/index/fetch" getComponent={Fetch} />
+	        <Route path="/index/empty" getComponent={Empty} />
 	        <Route path="/index/product" getComponent={Product}>
 	            <Route path="/index/product/think" getComponent={Think} />
 	            <Route path="/index/product/lenovo" getComponent={Lenovo} >

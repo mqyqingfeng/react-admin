@@ -54,6 +54,9 @@ class SiderBar extends React.Component {
                         <Menu.Item key="notfound">
                             <Link to="/index/notfound" activeStyle={ACTIVE}>404页面</Link>
                         </Menu.Item>
+                        <Menu.Item key="empty">
+                            <Link to="/index/empty" activeStyle={ACTIVE}>空模板</Link>
+                        </Menu.Item>
                     </SubMenu>
                 </Menu>
             </div>
