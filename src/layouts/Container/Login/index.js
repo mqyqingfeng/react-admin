@@ -44,7 +44,7 @@ class Login extends React.Component {
 
                 if (res.status == 200) {
 
-                    notify('success', '提示', '登陆成功');
+                    notify('success', '提示', '登录成功');
 
                     localStorage.setItem('userData', JSON.stringify(res.data));
 
@@ -52,7 +52,7 @@ class Login extends React.Component {
 
                 }
                 else {
-                   notify('error', '提示', '登陆失败');
+                   notify('error', '提示', '登录失败');
                 }
 
             })

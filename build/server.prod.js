@@ -11,6 +11,9 @@ var compiler = webpack(config);
 
 var rootPath = path.resolve(__dirname, '..');
 
+// 这句必须在解决跨域问题之前，否则会导致css文件加载但样式无效的问题
+app.use(express.static(rootPath))
+
 app.all('*',function(req,res,next){
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -20,8 +23,6 @@ app.all('*',function(req,res,next){
     res.header("Content-Type", "text/html");
     next();
 })
-
-app.use(express.static(rootPath))
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(rootPath, 'dist/index.html'));

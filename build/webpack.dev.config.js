@@ -30,10 +30,10 @@ module.exports = _.merge(config, {
             exclude: /node_modules/
         }, {
             test: /\.scss$/,
-            loaders: ["style", "css", "sass"]
+            loaders: ["style", "css-loader", "postcss", "sass"]
         }, {
             test: /\.css$/,
-            loaders: ["style", "css"]
+            loaders: ["style", "css-loader", "postcss"]
         },{
             test: /\.(jpe?g|png|gif|svg)$/,
             loader: 'url',

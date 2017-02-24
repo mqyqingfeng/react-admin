@@ -31,10 +31,10 @@ module.exports =  _.merge(config, {
             exclude: /node_modules/
         }, {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
         },{
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")
         },{
             test: /\.(jpe?g|png|gif|svg)$/,
             loader: 'url',
