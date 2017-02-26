@@ -1,0 +1,57 @@
+@font-face {font-family: "iconfont";
+  src: url('../../../static/font/iconfont.eot?t=1487584087936'); /* IE9*/
+  src: url('../../../static/font/iconfont.eot?t=1487584087936#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../../static/font/iconfont.woff?t=1487584087936') format('woff'), /* chrome, firefox */
+  url('../../../static/font/iconfont.ttf?t=1487584087936') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../../../static/font/iconfont.svg?t=1487584087936#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &:hover {
+  	font-size: 50px;
+  	transition: all 1s;
+  }
+}
+
+.icon-appreciate:before { content: "\e644"; }
+
+.icon-check:before { content: "\e645"; }
+
+.icon-close:before { content: "\e646"; }
+
+.icon-edit:before { content: "\e649"; }
+
+.icon-emoji:before { content: "\e64a"; }
+
+.icon-list-wrap {
+	padding: 20px;
+	p {
+		font-size: 14px;
+	}
+}
+
+.icon-lists li{
+  float:left;
+  width: 100px;
+  height:180px;
+  text-align: center;
+  list-style: none !important;
+}
+.icon-lists .icon{
+  font-size: 22px;
+  line-height: 100px;
+  margin: 10px 0;
+  color:#333;
+  -webkit-transition: font-size 0.25s ease-out 0s;
+  -moz-transition: font-size 0.25s ease-out 0s;
+  transition: font-size 0.25s ease-out 0s;
+
+}
+.icon-lists .icon:hover{
+  font-size: 50px;
+}

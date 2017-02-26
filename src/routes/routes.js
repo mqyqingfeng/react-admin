@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Route, IndexRoute } from 'react-router';
+import { Route, IndexRoute, IndexRedirect } from 'react-router';
 
 import Container from 'LAYOUTS/Container';
 import Login from 'LAYOUTS/Container/Login';
@@ -65,15 +65,22 @@ const Empty = (location, cb) => {
     },'fetch')
 }
 
+const IconFont = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('COMPONENTS/Content/IconFont').default)
+    },'iconfont')
+}
+
 export default (
 	<Route path="/" component={Container}>
 	    <IndexRoute component={Login} />
 	    <Route path="/login" component={Login} />
 	    <Route path="/index" onEnter={authRequired} getComponent={Main} >
-	        <IndexRoute getComponent={Redux} />
+            <IndexRedirect to="/index/redux" />
             <Route path="/index/redux" getComponent={Redux} />
             <Route path="/index/fetch" getComponent={Fetch} />
-	        <Route path="/index/empty" getComponent={Empty} />
+            <Route path="/index/empty" getComponent={Empty} />
+	        <Route path="/index/iconfont" getComponent={IconFont} />
 	        <Route path="/index/product" getComponent={Product}>
 	            <Route path="/index/product/think" getComponent={Think} />
 	            <Route path="/index/product/lenovo" getComponent={Lenovo} >

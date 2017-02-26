@@ -38,6 +38,12 @@ module.exports = _.merge(config, {
             test: /\.(jpe?g|png|gif|svg)$/,
             loader: 'url',
             query: {limit: 10240}
+        },{
+            test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
+            loader: "url-loader",
+            query: {
+                limit: 1024
+            }
         }]
     },
     plugins: [

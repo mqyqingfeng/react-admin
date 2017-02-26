@@ -14,7 +14,8 @@ module.exports = {
               ROUTES: path.join(src, 'routes'),
               UTIL: path.join(src, 'util'),
               ACTIONS: path.join(src, 'redux/actions'),
-              WITH: path.join(src, 'with')
+              WITH: path.join(src, 'with'),
+              STATIC: path.join(src, 'static')
         }
     }
 };

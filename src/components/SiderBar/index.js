@@ -24,7 +24,7 @@ class SiderBar extends React.Component {
 
     handleClick() {
 
-        browserHistory.push('/index/user')
+        browserHistory.push('/index')
 
     }
 
@@ -48,6 +48,9 @@ class SiderBar extends React.Component {
                         </Menu.Item>
                         <Menu.Item key="dynamicRoute">
                             <Link to="/index/product" activeStyle={ACTIVE}>动态路由加载</Link>
+                        </Menu.Item>
+                        <Menu.Item key="iconfont">
+                            <Link to="/index/iconfont" activeStyle={ACTIVE}>使用字体图标</Link>
                         </Menu.Item>
                     </SubMenu>
                     <SubMenu key="RouterManager" title={<span><Icon type="appstore" /><span>其他</span></span>}>
