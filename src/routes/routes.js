@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Route, IndexRoute, IndexRedirect } from 'react-router';
 
+import { browserHistory } from 'react-router';
+
 import Container from 'LAYOUTS/Container';
 import Login from 'LAYOUTS/Container/Login';
 

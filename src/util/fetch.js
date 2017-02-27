@@ -34,32 +34,55 @@ const urlEncode = function(param, key, encode) {
 
 };
 
+/**
+ * 封装的fetch函数
+ * 依然可以像jquery一样使用type, data字段，但会根据是否使用type字段进行不同的处理
+ * 如果使用了type字段
+ * 当type为get时，会将data中的数据自动拼接到url中，
+ * 当type为post时，会将data中的数据拼接放在body中，
+ * 当header的content-type设置为application/json,会使用json.stringify处理data字段，并且添加到body中
+ * 不使用type字段时
+ * 使用正常的fetch方式进行传参
+ */
 export default function(url, opt){
 
-	let options = {
-		'method': opt.type,
+	let defaultOptions = {
+		'method': opt.type || 'GET',
 		'headers': {
 			'Content-Type': 'application/x-www-form-urlencoded'
 		}
-
 	};
 
-	if (opt.data) {
+	let options = Object.assign({}, defaultOptions, opt)
 
-		let bodyString = urlEncode(opt.data);
+	if (options.type) {
 
-		bodyString = bodyString.substr(1, bodyString.length);
+		if(options.headers && options.headers['Content-Type'] == 'application/json') {
 
-		if (options.method.toLowerCase() == 'post') {
-
-		    options.body = bodyString;
-
-		}
-		else if (options.method.toLowerCase() == 'get') {
-
-		    url = url + '?' + bodyString;
+			if (!options.body) {
+				options.body = JSON.stringify(options.data)
+			}
 
 		}
+		else if (options.data) {
+
+			let bodyString = urlEncode(options.data);
+
+			bodyString = bodyString.substr(1, bodyString.length);
+
+			switch (options.method.toLowerCase()) {
+				case 'post':
+					options.body = bodyString;
+					break;
+				case 'get':
+				default:
+					url = url + '?' + bodyString;
+			}
+
+		}
+
+		options.data && delete options.data;
+		options.type && delete options.type;
 
 	}
 
