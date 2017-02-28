@@ -64,7 +64,7 @@ const Fetch = (location, cb) => {
 const Empty = (location, cb) => {
     require.ensure([], require => {
         cb(null, require('COMPONENTS/Content/Empty').default)
-    },'fetch')
+    },'empty')
 }
 
 const IconFont = (location, cb) => {

@@ -6,3 +6,12 @@
 	width: 100%;
 	height: 100%;
 }
+
+div[data-reactroot] {
+  height: 100%;
+}
+
+// 解决ant-notification 阻挡右边
+div.ant-notification[data-reactroot] {
+  height: auto;
+}

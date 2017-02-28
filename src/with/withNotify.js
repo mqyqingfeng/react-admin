@@ -8,6 +8,7 @@ export let withNotify = ComponsedComponent => class extends React.Component {
 
         super(props);
         this.notify = this.notify.bind(this)
+
     }
 
     notify(type, message, description) {
