@@ -4,23 +4,14 @@ import { Select } from 'antd';
 
 import { connect } from 'react-redux';
 
-import { selectProduct } from 'ACTIONS/selectProduct.js'
+import { selectProduct } from 'ACTIONS/selectProduct'
 
 const Option = Select.Option;
 
 class SelectProduct extends React.Component {
 
-    constructor() {
+    handleChange = (productValue)  => {
 
-        super();
-
-        this.handleChange = this.handleChange.bind(this);
-
-    }
-
-    handleChange(productValue) {
-
-        console.log(productValue)
         this.props.onSelectProduct(productValue)
 
     }

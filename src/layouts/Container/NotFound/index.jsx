@@ -40,7 +40,7 @@ class NotFound extends React.Component {
 		      		返回上一页
 		      	</span>
 		      	<span>或者</span>
-		      	<span onClick={this.goIndex}  className="link-style">
+		      	<span onClick={this.goIndex} className="link-style">
 		      		跳转首页
 		      	</span>
 

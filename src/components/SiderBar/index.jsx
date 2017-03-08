@@ -1,12 +1,8 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-
 import { Link, browserHistory } from 'react-router';
 
-import _ from 'lodash';
-
-import { Menu, Icon, Switch } from 'antd';
+import { Menu, Icon } from 'antd';
 
 const SubMenu = Menu.SubMenu;
 
@@ -16,13 +12,7 @@ require('./siderbar.scss');
 
 class SiderBar extends React.Component {
 
-    constructor(props) {
-
-        super(props);
-
-    }
-
-    handleClick() {
+    handleClick = () => {
 
         browserHistory.push('/index')
 
@@ -32,9 +22,9 @@ class SiderBar extends React.Component {
 
         return (
             <div className="siderbar">
-                <h1 className="header-title" onClick={this.handleClick.bind(this)}>后台管理系统</h1>
+                <h1 className="header-title" onClick={this.handleClick}>后台管理系统</h1>
                 <Menu
-                    theme='dark'
+                    theme="dark"
                     style={{ width: 240 }}
                     defaultOpenKeys={['IndexPageManager', 'RouterManager']}
                     mode="inline"

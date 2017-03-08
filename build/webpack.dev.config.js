@@ -15,7 +15,7 @@ module.exports = _.merge(config, {
     entry: [
         'react-hot-loader/patch',
         'webpack-hot-middleware/client',
-        './src/main'
+        './src/main.jsx'
     ],
     output: {
         path: path.join(rootPath, 'src'),
@@ -24,6 +24,11 @@ module.exports = _.merge(config, {
         chunkFilename: '[name]-[hash].js'
     },
     module: {
+        preLoaders: [{
+             test: /\.js$/,
+             loader: 'eslint',
+             exclude: /node_modules/
+        }],
         loaders: [{
             test: /\.jsx?$/,
             loaders: ['babel-loader'],
@@ -49,7 +54,7 @@ module.exports = _.merge(config, {
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        // new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             template: 'index.tpl.html',
             inject: 'body',

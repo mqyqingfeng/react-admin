@@ -7,7 +7,7 @@ var src = path.join(rootPath, 'src');
 
 module.exports = {
     resolve: {
-        extensions: ['', '.js', '.json'],
+        extensions: ['', '.js', '.jsx', '.json'],
         alias: {
               COMPONENTS: path.join(src, 'components'),
               LAYOUTS: path.join(src, 'layouts'),

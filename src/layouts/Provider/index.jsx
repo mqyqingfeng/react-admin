@@ -14,7 +14,7 @@ import './global.scss';
 
 import { notification } from 'antd';
 
-import routers from 'ROUTES/routes.js';
+import routers from 'ROUTES/routes';
 
 const logger = createLogger();
 

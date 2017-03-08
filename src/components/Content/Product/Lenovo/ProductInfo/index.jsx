@@ -1,6 +1,7 @@
 import React from 'react';
 
 class ProductInfo extends React.Component {
+
     render() {
 
         let { params } = this.props;
@@ -11,6 +12,7 @@ class ProductInfo extends React.Component {
       		</div>
         );
     }
+
 }
 
 export default ProductInfo;

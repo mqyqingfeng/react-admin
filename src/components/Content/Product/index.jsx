@@ -9,6 +9,7 @@ import './product.scss';
 class Product extends React.Component {
 
     render() {
+
         let { children } = this.props;
 
         return (
@@ -17,8 +18,8 @@ class Product extends React.Component {
 
                 <div className="product-type-wrap">
                     产品类型：
-                    <Link to='/index/product/lenovo' style={{marginRight: '20px'}}>Lenovo</Link>
-                    <Link to='/index/product/think'>Think</Link>
+                    <Link to="/index/product/lenovo" style={{marginRight: "20px"}}>Lenovo</Link>
+                    <Link to="/index/product/think">Think</Link>
                 </div>
 
                 {this.props.children}

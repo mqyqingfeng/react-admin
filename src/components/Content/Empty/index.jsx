@@ -2,18 +2,17 @@ import React from 'react';
 
 class Empty extends React.Component {
 
-	constructor() {
+	constructor(props) {
 
-	    super();
+	    super(props);
 
 	}
-
 
     render() {
 
         return (
             <div>
-            	<p></p>
+            	empty
       		</div>
         );
 

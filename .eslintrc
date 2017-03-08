@@ -1,21 +1,68 @@
 {
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true
-  },
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "parser": "babel-eslint",
-  "rules": {
-    "quotes": [2, "single"],
-    "strict": [2, "never"],
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
-  },
-  "plugins": [
-    "react"
-  ]
+    "parser": "babel-eslint",
+    "plugins": [
+        "react",
+        "jsx-a11y"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        // 使用 class extends React.Component 创建组件
+        "react/prefer-es6-class": ["error", "always"],
+        // React模块名使用帕斯卡命名
+        "react/jsx-pascal-case": ["error"],
+        // React规范2.5 组件多行属性分别写在一行
+        "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+        // 属性值使用双引号
+        "jsx-quotes": ["error", "prefer-double"],
+        // 不能有多余的空格
+        "no-multi-spaces": ["error"],
+        // 自动关闭的标签前间一个空格
+        "react/jsx-space-before-closing": ["error", "always"],
+        // 不要在JSX{}括号里两边加空格
+        "react/jsx-curly-spacing": ["error", "never", { "allowMultiline": true }],
+        // 如果属性值为 true, 可以直接省略
+        "react/jsx-boolean-value": ["error", "never"],
+        // <img> 标签总是添加 alt 属性
+        "jsx-a11y/img-has-alt": "error",
+        // 不要在 alt 值里使用如 "image", "photo", or "picture"包括图片含义这样的词
+        "jsx-a11y/img-redundant-alt": "error",
+        // 使用有效正确的 aria role属性值
+        "jsx-a11y/aria-role": ["error", { "ignoreNonDom": false }],
+        // 不要在标签上使用 accessKey
+        "jsx-a11y/no-access-key": "error",
+        // 总是在Refs里使用回调函数
+        "react/no-string-refs": "error",
+        // 将多行的JSX标签写在 ()里
+        "react/wrap-multilines": "off",
+        // 对于没有子元素的标签来说总是自己关闭标签
+        "react/self-closing-comp": "error",
+        // 当在 render() 里使用事件处理方法时，提前在构造函数里把 this 绑定上去
+        "react/jsx-no-bind": ["error", {
+            "ignoreRefs": true,
+            "allowArrowFunctions": true,
+            "allowBind": false,
+        }],
+        // 在 render 方法中总是确保 return 返回值
+        "react/require-render-return": "error",
+        // 不要再使用 isMounted
+        "react/no-is-mounted": "error",
+        // 生命周期函数
+        "react/sort-comp": ["error", {
+            "order": [
+                "static-methods",
+                "lifecycle",
+                "/^on.+$/",
+                "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
+                "everything-else",
+                "/^render.+$/",
+                "render"
+            ],
+        }],
+        // 使用jsx后缀
+        "react/jsx-filename-extension": ["error", { "extensions": [".jsx"] }]
+    }
 }

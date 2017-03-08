@@ -11,7 +11,7 @@ class Main extends React.Component {
     render() {
 
         return (
-            <div className='main-wrap' >
+            <div className="main-wrap" >
                 <SiderBar />
                 <div className="content">
                     <Header />

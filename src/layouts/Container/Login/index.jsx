@@ -19,13 +19,13 @@ function noop() {
 
 class Login extends React.Component {
 
-    onPressEnter(e) {
+    onPressEnter = (e) => {
 
         this.handleSubmit(e)
 
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
 
         e.preventDefault();
 
@@ -82,32 +82,32 @@ class Login extends React.Component {
                                 }],
                             })(
                                 <Input
-                                    placeholder='请输入登录账号'
+                                    placeholder="请输入登录账号"
                                     autoComplete="off"
-                                    onPressEnter={this.onPressEnter.bind(this)}
+                                    onPressEnter={this.onPressEnter}
                                 />
                             )}
 
                         </FormItem>
                         <FormItem {...formItemLayout} hasFeedback>
 
-                            {getFieldDecorator('password', {
+                            {getFieldDecorator("password", {
                                 rules: [{
-                                  required: true, whitespace: true, message: '请填写密码'
+                                  required: true, whitespace: true, message: "请填写密码"
                                 }],
                             })(
                                 <Input
-                                    placeholder='请输入登录密码'
-                                    type='password'
+                                    placeholder="请输入登录密码"
+                                    type="password"
                                     autoComplete="off"
                                     onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                                    onPressEnter={this.onPressEnter.bind(this)}
+                                    onPressEnter={this.onPressEnter}
                                 />
                             )}
 
                         </FormItem>
                         <FormItem {...formItemLayout}>
-                            <Button type="primary" onClick={this.handleSubmit.bind(this)}>登录</Button>
+                            <Button type="primary" onClick={this.handleSubmit}>登录</Button>
                         </FormItem>
                     </Form>
                 </div>

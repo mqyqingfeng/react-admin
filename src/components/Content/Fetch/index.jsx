@@ -8,16 +8,7 @@ import { withNotify } from 'WITH/withNotify';
 
 class Fetch extends React.Component {
 
-	constructor() {
-
-	    super();
-
-	    this.fetchExample = this.fetchExample.bind(this);
-
-	}
-
-	fetchExample() {
-
+	fetchExample = () => {
 
 		const {notify} = this.props;
 
@@ -45,7 +36,13 @@ class Fetch extends React.Component {
         return (
             <div style={{padding: '20px'}}>
             	<p style={{fontSize: '14px'}}>说明：打开调试工具，点击查看</p>
-      			<Button type="primary" onClick={this.fetchExample} style={{marginTop: '20px'}}>点击请求接口</Button>
+      			<Button
+      				type="primary"
+      				onClick={this.fetchExample}
+      				style={{marginTop: '20px'}}
+      			>
+      				点击请求接口
+      			</Button>
       		</div>
         );
 
