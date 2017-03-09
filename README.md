@@ -1,29 +1,6 @@
-# React-Base
+# React-Admin
 
-React + ant-design 脚手架，专用作后台管理系统，功能齐全，细节完善，并且提供丰富的示例代码，可以直接上手和开发。
-
-# 实现的功能
-
-1. 热加载
-2. ES6/7
-3. Sass
-4. 动态路由
-5. Mock接口
-6. 本地node服务器
-
-# 更多特性
-
-除了主流的技术选型之外，还提供了
-
-1. 丰富的示例代码，并且提供sublime snippets，提高开发效率
-    1. 组件的写法示例
-    2. action 和 reducers的写法示例
-    3. 使用fetch获取数据的写法示例
-2. 半完成的后台界面，细节丰富，包括
-    1. 登陆(可纯键盘操作登陆)
-    2. 菜单栏(菜单栏会随路由变化而激活不同的菜单)
-    3. 404页面
-    4. 空白模板
+React + Ant Design 脚手架，专用作后台管理系统，反复在项目中实践和优化，功能齐全，细节完善，并且提供丰富的示例代码，可以直接上手和开发。
 
 ## 技术选型
 
@@ -32,12 +9,54 @@ React + ant-design 脚手架，专用作后台管理系统，功能齐全，细�
 * classnames + lodash
 * sass
 * webpack + react-hot-loader
+* eslint
+
+## 实现的功能
+
+1. 热加载
+2. ES6/7
+3. 动态路由
+4. action日志打印
+5. 配置生成Mock接口
+6. 本地node服务器
+7. ESLint
+8. Sass
+9. postcss
+10. fetch获取数据
+
+## 更多特性
+
+除了主流的技术选型之外，还提供了
+
+1. 丰富的示例代码，包括：
+    * 组件
+    * Redux
+    * fetch请求接口
+    * 字体图标
+    * 动态路由
+2. 半完成的后台界面，细节丰富，包括
+    * 登陆(可纯键盘操作登陆)
+    * 菜单栏(菜单栏会随路由变化而激活不同的菜单)
+    * 进入内容页会进行权限判断
+    * 404页面
+3. 提供sublime snippets，提高开发效率，包括创建：
+    * action
+    * reducers
+    * component
+    * fetch
+    * mapDispatchToProps
+    * mapStateToProps
+4. ESLint
+
+    配置可查看src/.eslintrc文件，规范遵循[Airbnb React规范](https://github.com/airbnb/javascript/tree/master/react)
+
+    注意：为保证规范的执行，在出现不规范时，开发时会提示，编译时无法成功！
 
 ## 使用方法
 
 ```bash
-$ git clone git@github.com:mqyqingfeng/react-base.git
-$ cd react-base
+$ git clone git@github.com:mqyqingfeng/react-admin.git
+$ cd react-admin
 $ cnpm install                   # 需要安装cnpm
 
 // 开发
@@ -59,13 +78,21 @@ $ npm run build
 
 ![登陆页](README/login.jpg)
 
-主内容区：
+Redux使用示例：
 
-![内容页](README/redux.png)
+![redux](README/redux.png)
+
+Fetch使用示例：
+
+![fetch](README/fetch.png)
 
 动态加载演示：
 
 ![动态路由加载](README/dynamicRoute.png)
+
+字体图标使用示例：
+
+![字体图标](README/iconfont.png)
 
 404页面：
 
