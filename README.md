@@ -8,7 +8,7 @@ React + Ant Design 脚手架，专用作后台管理系统，反复在项目中�
 * redux-action + redux-logger
 * classnames + lodash
 * sass
-* webpack + react-hot-loader
+* webpack2 + react-hot-loader
 * eslint
 
 ## 实现的功能
@@ -71,6 +71,17 @@ $ npm run build
 
 ```
 
+如果想查看webpack1版本：
+
+```bash
+$ git clone git@github.com:mqyqingfeng/react-admin.git
+$ cd react-admin
+$ git checkout webpack1
+$ cnpm install
+
+//使用方法相同
+
+```
 
 ## 页面展示
 
