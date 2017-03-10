@@ -15,7 +15,7 @@ module.exports = _.merge(config, {
     entry: [
         'react-hot-loader/patch',
         'webpack-hot-middleware/client',
-        './src/main.jsx'
+        './src/main'
     ],
     output: {
         path: path.join(rootPath, 'src'),
@@ -24,24 +24,24 @@ module.exports = _.merge(config, {
         chunkFilename: '[name]-[hash].js'
     },
     module: {
-        preLoaders: [{
-             test: /\.js$/,
-             loader: 'eslint',
-             exclude: /node_modules/
-        }],
-        loaders: [{
+        rules: [{
+            enforce: "pre",
+            test: /\.jsx$/,
+            loader: 'eslint-loader',
+            exclude: /node_modules/
+        }, {
             test: /\.jsx?$/,
-            loaders: ['babel-loader'],
+            loader: 'babel-loader',
             exclude: /node_modules/
         }, {
             test: /\.scss$/,
-            loaders: ["style", "css-loader", "postcss", "sass"]
+            loaders: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
         }, {
             test: /\.css$/,
-            loaders: ["style", "css-loader", "postcss"]
+            loaders: ["style-loader", "css-loader", "postcss-loader"]
         },{
             test: /\.(jpe?g|png|gif|svg)$/,
-            loader: 'url',
+            loader: 'url-loader',
             query: {limit: 10240}
         },{
             test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
@@ -52,7 +52,6 @@ module.exports = _.merge(config, {
         }]
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         // new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({

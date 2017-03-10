@@ -25,19 +25,30 @@ module.exports =  _.merge(config, {
         chunkFilename: '[name]-[hash].chunk.js'
     },
     module: {
-        loaders: [{
+        rules: [{
+            enforce: "pre",
+            test: /\.jsx$/,
+            loader: 'eslint-loader',
+            exclude: /node_modules/
+        },{
             test: /\.jsx?$/,
-            loaders: ['babel-loader'],
+            loader: 'babel-loader',
             exclude: /node_modules/
         }, {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader!postcss-loader!sass-loader"
+            })
         },{
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader")
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader!postcss-loader"
+            })
         },{
             test: /\.(jpe?g|png|gif|svg)$/,
-            loader: 'url',
+            loader: 'url-loader',
             query: {limit: 10240}
         },{
             test: /\.(woff|woff2|svg|eot|ttf)\??.*$/,
@@ -48,7 +59,6 @@ module.exports =  _.merge(config, {
         }]
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new HtmlWebpackPlugin({
             template: 'index.tpl.html',
             inject: 'body',
@@ -56,7 +66,6 @@ module.exports =  _.merge(config, {
         }),
         new ExtractTextPlugin("bundle.css"),
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 unused: true,
@@ -64,6 +73,7 @@ module.exports =  _.merge(config, {
                 warnings: false
             }
         }),
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         })

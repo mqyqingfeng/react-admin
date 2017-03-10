@@ -10,7 +10,7 @@ const Option = Select.Option;
 
 class SelectProduct extends React.Component {
 
-    handleChange = (productValue)  => {
+    handleChange = (productValue) => {
 
         this.props.onSelectProduct(productValue)
 
